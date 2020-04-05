@@ -1,0 +1,77 @@
+<div class="container p-3 my-3 h-100" *ngIf="oWeather">
+  <div>
+    <div class="alert alert-danger" role="alert" *ngIf="bNotFound">
+      The weather of this city is not found!
+    </div>
+    <!-- search form -->
+    <form class="form-inline align-items-center justify-content-center">
+      <div class="form-group mx-sm-3 mb-2">
+        <label for="cityName" class="sr-only">City Name</label>
+        <input id="cityName" type="text" class="form-control" name="sSearchKey" [(ngModel)]="sSearchKey"
+          placeholder="Your city name">
+      </div>
+      <button type="submit" class="btn btn-primary mb-2" (click)="onSearch($event)">Search</button>
+    </form>
+  </div>
+
+  <!-- weather basic information in left section -->
+  <div class="row p-3 h-100">
+    <div class="col-6 col-md-4 col-sm-12" id="left">
+      <h2 class="d-none d-sm-block">Weather in {{oWeather.name}}, {{oWeather.sys.country}}</h2>
+      <h3>
+        <img [src]="oWeather.weather[0].icon" alt="forecast" width="50" height="50">
+        {{oWeather.main.temp}} °C
+      </h3>
+      <p>{{oWeather.weather[0].description}}</p>
+      <p>{{oRequestTime | date:'HH:mm LLL dd'}}</p>
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td>Wind</td>
+            <td>{{oWeather.wind.speed}} m/s</td>
+          </tr>
+          <tr>
+            <td>Cloudiness</td>
+            <td>{{oWeather.weather[0].description}}</td>
+          </tr>
+          <tr>
+            <td>Pressure</td>
+            <td>{{oWeather.main.pressure}} hpa</td>
+          </tr>
+          <tr>
+            <td>Humidity</td>
+            <td>{{oWeather.main.humidity}} %</td>
+          </tr>
+          <tr>
+            <td>Sunrise</td>
+            <td>{{oWeather.sys.sunrise | date:'HH:mm'}} </td>
+          </tr>
+          <tr>
+            <td>Sunset</td>
+            <td>{{oWeather.sys.sunset | date:'HH:mm'}}</td>
+          </tr>
+          <tr>
+            <td>Geo coords</td>
+            <td><a>[<span id="wrong-data-lat">{{oWeather.coord.lat}}</span>,&nbsp;<span
+                  id="wrong-data-lon">{{oWeather.coord.lon}}</span>]</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- nav bar -->
+    <div class="col-md-8 col-sm-12">
+      <ul class="nav nav-tabs" id="tabs" role="tablist">
+        <li class="nav-item">
+          <a class="nav-link active" id="main-tab" data-toggle="tab" [routerLink]="['/main', oWeather.name]" role="tab"
+            aria-controls="pills-main" aria-selected="true">Main</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" id="hourly-tab" data-toggle="tab" [routerLink]="['/hourly', oWeather.name]" role="tab"
+            aria-controls="pills-hourly" aria-selected="false">Hourly</a>
+        </li>
+      </ul>
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</div>

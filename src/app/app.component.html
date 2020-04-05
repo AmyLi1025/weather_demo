@@ -1,0 +1,19 @@
+<header class="navbar navbar-expand navbar-light sticky-top" style="background-color: #4e4d4a;">
+  <div class="container bar_txt">
+    <a class="nav-link" href="/">
+      <h1 class="bar_txt">Weather forecast</h1>
+    </a>
+    <div class="my-2 my-lg-0" *ngIf="sUserName">
+      <div>
+        <button type="button" class="btn btn-link" (click)="logout()">
+          <span class="weatherfont-color" style="font-size: smaller;">Logout</span>
+        </button>
+      </div>
+      <span>Welcome,
+        <span style="font-style: italic;">{{ sUserName }}</span>
+        !
+      </span>
+    </div>
+  </div>
+</header>
+<router-outlet></router-outlet>

@@ -1,0 +1,19 @@
+.hourly_line_light {
+    background-color: rgba(0, 0, 0, 0.05);
+    padding: 0.75rem;
+    font-weight: 500;
+}
+
+.hourly_temp {
+    width: 50px;
+    margin-right: 10pt;
+}
+
+.hourly_weather_main {
+    font-style: italic;
+}
+
+.hourly_col_small {
+    width: 40%;
+    vertical-align: middle;
+}

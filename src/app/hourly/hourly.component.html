@@ -1,0 +1,40 @@
+<!-- show loading when info before weather info is ready to show -->
+<div class="d-flex justify-content-center align-items-center position-absolute h-100 w-100" *ngIf="!sCity">
+    <div class="spinner-border m-5" role="status">
+        <span class="sr-only">Loading...</span>
+    </div>
+</div>
+
+<div class="div_title_top" *ngIf="sCity">
+    <h5>Hourly weather and forecasts in {{ sCity }}, {{ sCountry }}</h5>
+</div>
+
+<!-- hourly weather information -->
+<div *ngFor="let forecast of aForeCastData">
+    <div class="hourly_line_light">
+        {{forecast.datetime | date:'LLL dd, yyyy'}}
+    </div>
+    <table class="table">
+        <tbody>
+            <tr *ngFor="let data of forecast.data">
+                <td class="hourly_col_small">
+                    {{ data.datetime | date: 'HH:mm' }}
+                    <img [src]="data.image_url" alt="forecast" width="50" height="50">
+                </td>
+                <td>
+                    <div>
+                        <span class="badge badge-pill badge-dark hourly_temp">
+                            {{ data.temp }}°C
+                        </span>
+                        <i class="hourly_weather_main">{{data.weather_desc}}</i>
+                    </div>
+                    <div>
+                        {{ data.wind_speed }}, m/s
+                        {{ data.weather_main }}: {{ data.humidity }}%,
+                        {{ data.pressure }} hpa
+                    </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>

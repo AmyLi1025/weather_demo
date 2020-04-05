@@ -1,0 +1,31 @@
+/* You can add global styles to this file, and also import other style files */
+h1, h2, h3, h4, h5, .h1, .h2, .h3, .h4, .h5 {
+    font-family: fantasy;
+    color: #48484af0;
+}
+
+.bar_txt {
+    color: #ecf0f1;
+}
+
+.div_title_top {
+    padding-top: 1rem;
+}
+
+.x-small-font {
+    font-size: x-small;
+}
+
+a, .weatherfont-color{
+    color: #ec6e4c;
+}
+
+.title {
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+    text-align: center;
+}
+
+.btn-mt {
+    margin-top: 1rem;
+}

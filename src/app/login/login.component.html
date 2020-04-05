@@ -1,0 +1,31 @@
+<div class="d-flex justify-content-center align-items-center position-absolute w-100 login-h" >
+    <div class="col-lg-4 col-md-4 col-sm-6">
+        <div class="justify-content-center"><h1 class="title">Login</h1></div>
+        
+        <!-- alredy login message -->
+        <div class="alert alert-danger" role="alert" *ngIf="bLoggedIn">
+            You have logged in!
+        </div>
+        <!-- user info invalid error message -->
+        <div class="alert alert-danger" role="alert" *ngIf="bError">
+            The name or password is invalid!
+        </div>
+
+        <!-- login form -->
+        <form class="ng-pristine ng-invalid ng-touched" [formGroup]="oFormGroup">
+            <div class="form-group">
+                <label for="user">User</label>
+                <input name="userInput" required [maxlength]="USER_MAX_LENGTH" class="form-control"
+                    formControlName="user" id="user">
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input name="passwordInput" required type="password" class="form-control"
+                    formControlName="password" id="password">
+            </div>
+            <button type="submit" class="btn btn-primary w-100 btn-mt" (click)="onLogin($event)" [disabled]="oFormGroup.invalid">
+                Login
+            </button>
+        </form>
+    </div>
+</div>
