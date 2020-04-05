@@ -4,6 +4,10 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 It's a demo applciation of weather forecast. Please clone this git project to your local IDE and execute  `npm install` to install dependencies.
 
+The default city is configured as Dalian, CN.
+
+Please note that IE is not supported.
+
 ## Development server
 
 Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
