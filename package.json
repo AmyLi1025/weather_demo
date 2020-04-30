@@ -23,7 +23,7 @@
     "angular-in-memory-web-api": "^0.10.0",
     "bootstrap": "^4.4.1",
     "chart.js": "^2.9.3",
-    "jquery": "^3.4.1",
+    "jquery": "^3.5.0",
     "md5": "^2.2.1",
     "ngx-cookie-service": "^3.0.3",
     "rxjs": "~6.5.4",
